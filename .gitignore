@@ -9,3 +9,12 @@
 
 # rspec failure tracking
 .rspec_status
+
+*.iml
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
