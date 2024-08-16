@@ -1,0 +1,5 @@
+module Code0
+  module Identities
+    VERSION: String
+  end
+end
