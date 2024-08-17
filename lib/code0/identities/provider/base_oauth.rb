@@ -23,7 +23,7 @@ module Code0
         def load_identity(code)
           token, token_type = access_token code
 
-          response = p HTTParty.get(user_details_url,
+          response = HTTParty.get(user_details_url,
                                   headers: {
                                     Authorization: "#{token_type} #{token}",
                                     "Accept" => "application/json"
