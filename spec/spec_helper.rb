@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "code0/identities"
+require "webmock/rspec"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,5 +12,9 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  config.define_derived_metadata do |metadata|
+    metadata[:aggregate_failures] = true
   end
 end
