@@ -4,12 +4,6 @@ module Code0
   module Identities
     module Provider
       class Google < BaseOauth
-        attr_reader :config_loader
-
-        def initialize(config_loader)
-          @config_loader = config_loader
-        end
-
         def base_url
           "https://accounts.google.com"
         end
@@ -35,7 +29,9 @@ module Code0
 
         def authorization_url
           config = config_loader.call
+          # rubocop:disable Layout/LineLength
           base_url + "/o/oauth2/v2/auth?client_id=#{config[:client_id]}&response_type=code&redirect_uri=#{URI.encode_www_form_component(config[:redirect_uri])}&scope=openid%20email%20profile"
+          # rubocop:enable Layout/LineLength
         end
 
         def create_identity(response, *)

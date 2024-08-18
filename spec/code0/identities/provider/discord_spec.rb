@@ -8,7 +8,7 @@ RSpec.describe Code0::Identities::Provider::Discord do
         client_id: client_id,
         client_secret: client_secret
       }
-    }).load_identity(code)
+    }).load_identity(code: code)
   end
 
   let(:redirect_uri) { SecureRandom.hex }

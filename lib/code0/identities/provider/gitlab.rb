@@ -4,19 +4,13 @@ module Code0
   module Identities
     module Provider
       class Gitlab < BaseOauth
-        attr_reader :config_loader
-
-        def initialize(config_loader)
-          @config_loader = config_loader
-        end
-
         def base_url
           config = config_loader.call
           config[:base_url]
         end
 
         def token_url
-          base_url + "/oauth/token"
+          "#{base_url}/oauth/token"
         end
 
         def token_payload(code)
@@ -25,19 +19,19 @@ module Code0
             grant_type: "authorization_code",
             redirect_uri: config[:redirect_uri],
             client_id: config[:client_id],
-            client_secret: config[:client_secret]
-          }
+            client_secret: config[:client_secret] }
         end
 
         def user_details_url
-          base_url + "/api/v4/user"
+          "#{base_url}/api/v4/user"
         end
 
         def authorization_url
           config = config_loader.call
+          # rubocop:disable Layout/LineLength
           base_url + "/oauth/authorize?client_id=#{config[:client_id]}&response_type=code&redirect_uri=#{URI.encode_uri_component(config[:redirect_uri])}&scope=read_user"
+          # rubocop:enable Layout/LineLength
         end
-
 
         def create_identity(response, *)
           body = response.parsed_response

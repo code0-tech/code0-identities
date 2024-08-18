@@ -4,12 +4,6 @@ module Code0
   module Identities
     module Provider
       class Microsoft < BaseOauth
-        attr_reader :config_loader
-
-        def initialize(config_loader)
-          @config_loader = config_loader
-        end
-
         def base_url
           "https://graph.microsoft.com/"
         end
@@ -24,8 +18,7 @@ module Code0
             grant_type: "authorization_code",
             redirect_uri: config[:redirect_uri],
             client_id: config[:client_id],
-            client_secret: config[:client_secret]
-          }
+            client_secret: config[:client_secret] }
         end
 
         def user_details_url

@@ -3,6 +3,7 @@
 require "httparty"
 
 require_relative "identities/version"
+require_relative "identities/identity_provider"
 require_relative "identities/identity"
 require_relative "identities/provider/base_oauth"
 require_relative "identities/provider/microsoft"

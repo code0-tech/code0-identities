@@ -1,7 +1,14 @@
+# frozen_string_literal: true
+
 module Code0
   module Identities
     module Provider
       class BaseOauth
+        attr_reader :config_loader
+
+        def initialize(config_loader)
+          @config_loader = config_loader
+        end
 
         def authorization_url
           raise NotImplementedError
@@ -19,8 +26,8 @@ module Code0
           raise NotImplementedError
         end
 
-
-        def load_identity(code)
+        def load_identity(**params)
+          code = params[:code]
           token, token_type = access_token code
 
           response = HTTParty.get(user_details_url,
@@ -39,9 +46,9 @@ module Code0
         def access_token(code)
           response = HTTParty.post(token_url,
                                    body: URI.encode_www_form(token_payload(code)), headers: {
-              "Content-Type" => "application/x-www-form-urlencoded",
-              "Accept" => "application/json"
-            })
+                                     "Content-Type" => "application/x-www-form-urlencoded",
+                                     "Accept" => "application/json"
+                                   })
 
           check_response response
 
