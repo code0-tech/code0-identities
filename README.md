@@ -1,4 +1,4 @@
-# Code0::Identities [![Build Status](https://img.shields.io/github/actions/workflow/status/code0-tech/code0-identities/main.yml?branch=main)](https://github.com/PaperMC/Paper/actions)
+# Code0::Identities [![Build Status](https://img.shields.io/github/actions/workflow/status/code0-tech/code0-identities/main.yml?branch=main)](https://github.com/PaperMC/Paper/actions) ![GitHub Release](https://img.shields.io/github/v/release/code0-tech/code0-identities)
 
 TODO: Delete this and the text below, and describe your gem
 
