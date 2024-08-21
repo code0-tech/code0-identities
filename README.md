@@ -1,4 +1,5 @@
-# Code0::Identities [![Build Status](https://img.shields.io/github/actions/workflow/status/code0-tech/code0-identities/main.yml?branch=main)](https://github.com/PaperMC/Paper/actions) ![GitHub Release](https://img.shields.io/github/v/release/code0-tech/code0-identities) ![Discord](https://img.shields.io/discord/1173625923724124200?label=Discord)
+# Code0::Identities [![Build Status](https://img.shields.io/github/actions/workflow/status/code0-tech/code0-identities/main.yml?branch=main)](https://github.com/PaperMC/Paper/actions) ![GitHub Release](https://img.shields.io/github/v/release/code0-tech/code0-identities) ![Discord](https://img.shields.io/discord/1173625923724124200?label=Discord&color=blue)
+
 
 
 TODO: Delete this and the text below, and describe your gem
