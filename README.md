@@ -5,11 +5,11 @@ This gem can load and validate external identities
 ## Supported platforms
 
 OAuth:
- - Google
- - Discord
- - Microsoft
- - Github
- - Gitlab
+> Google
+> Discord
+> Microsoft
+> Github
+> Gitlab
 
 ## Installation
 
