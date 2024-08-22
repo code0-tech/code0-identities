@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    code0-identities (0.1.0)
+    code0-identities (0.0.0)
       httparty (~> 0.22)
 
 GEM
