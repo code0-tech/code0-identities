@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":label(dependencies)"
+  ],
+  "assignees": [
+    "Taucher2003",
+    "Knerio"
+  ],
+  "packageRules": [
+    {
+      "matchDepNames": ["ruby"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
