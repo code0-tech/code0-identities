@@ -2,8 +2,11 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    ":assignee(Taucher2003,Knerio)",
     ":label(dependencies)"
+  ],
+  "assignees": [
+    "Taucher2003",
+    "Knerio"
   ],
   "packageRules": [
     {
