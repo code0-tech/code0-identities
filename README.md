@@ -23,4 +23,47 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
+You can use predefined Providers to load an identity from for example Discord:
+```ruby
 
+begin
+
+  identity = Code0::Identities::Provider::Discord.new(
+    -> {
+      redirect_uri : "http://localhost:8080/redirect",
+        client_id : "id"
+      client_secret : "xxxx"
+    }).load_identity({ code: "a_valid_code" })
+
+rescue Code0::Error => e
+  puts "Error occurred while loading the identity", e
+  exit!
+end
+
+# Then you can use the details from the user
+puts identity.provider # = :discord
+puts identity.username
+puts identity.identifier
+# ...
+
+```
+
+Or you can use a provider with multiple configured providers:
+
+```ruby
+
+identity_provider = Code0::Identities::IdentityProvider.new
+
+identity_provider.add_provider(:gitlab, my_gitlab_configuration)
+identity_provider.add_named_provider(:my_custom_gitlab_provider, :gitlab, my_custom_gitlab_provider_configuration)
+
+# Now you can either use the custom "my_custom_gitlab_provider" provider
+# or the "gitlab" provider
+
+identity_provider.load_identity(:gitlab, params)
+
+# or
+
+identity_provider.load_identity(:my_custom_gitlab_provider, params)
+
+```
