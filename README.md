@@ -26,6 +26,8 @@ If bundler is not being used to manage dependencies, install the gem by executin
 You can use predefined Providers to load an identity from for example Discord:
 ```ruby
 
+require "code0/identities"
+
 begin
 
   identity = Code0::Identities::Provider::Discord.new(
@@ -51,6 +53,8 @@ puts identity.identifier
 Or you can use a provider with multiple configured providers:
 
 ```ruby
+
+require "code0/identities"
 
 identity_provider = Code0::Identities::IdentityProvider.new
 
