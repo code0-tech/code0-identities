@@ -3,7 +3,7 @@
 module Code0
   module Identities
     class IdentityProvider
-      attr_reader providers: Array[Provider::BaseOauth]
+      attr_reader providers: Hash[Symbol, Provider::BaseOauth]
 
       def initialize: () -> void
 
