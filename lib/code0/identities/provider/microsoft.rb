@@ -13,7 +13,6 @@ module Code0
         end
 
         def token_payload(code)
-          config = config_loader.call
           { code: code,
             grant_type: "authorization_code",
             redirect_uri: config[:redirect_uri],
@@ -26,7 +25,6 @@ module Code0
         end
 
         def authorization_url
-          config = config_loader.call
           "https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=#{config[:client_id]}&response_type=code&redirect_uri=#{config[:redirect_uri]}&response_mode=query&scope=email%20profile%20openid"
         end
 

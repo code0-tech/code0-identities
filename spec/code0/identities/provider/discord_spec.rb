@@ -2,13 +2,11 @@
 
 RSpec.describe Code0::Identities::Provider::Discord do
   subject(:service_response) do
-    described_class.new(lambda {
-      {
+    described_class.new({
         redirect_uri: redirect_uri,
         client_id: client_id,
         client_secret: client_secret
-      }
-    }).load_identity(code: code)
+      }).load_identity(code: code)
   end
 
   let(:redirect_uri) { SecureRandom.hex }
@@ -34,7 +32,7 @@ RSpec.describe Code0::Identities::Provider::Discord do
     end
   end
 
-  context "when everything is valid" do
+  shared_examples "when everything is valid" do
     let(:access_token) { SecureRandom.hex }
     let(:response_body) { { id: 1, username: "name", email: "example@code0.tech" }.to_json }
 
@@ -65,4 +63,21 @@ RSpec.describe Code0::Identities::Provider::Discord do
       expect(service_response.email).to eq("example@code0.tech")
     end
   end
+
+  context "when config is Proc" do
+    subject(:service_response) do
+      described_class.new(-> {{
+                            redirect_uri: redirect_uri,
+                            client_id: client_id,
+                            client_secret: client_secret
+                          }}).load_identity(code: code)
+    end
+    it_behaves_like "when everything is valid"
+  end
+
+  context 'when config is a hash' do
+    it_behaves_like "when everything is valid"
+  end
+
+
 end

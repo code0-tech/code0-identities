@@ -66,6 +66,13 @@ module Code0
         def create_identity(*)
           raise NotImplementedError
         end
+
+        def config
+          if config_loader.is_a?(Proc)
+            return config_loader.call
+          end
+          config_loader
+        end
       end
     end
   end
