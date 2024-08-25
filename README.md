@@ -77,7 +77,7 @@ We also support passing in a function as a configuration instead of a hash
 ```ruby
 
 def get_identity
-  provider = Code0::Identities::Provider::Discord.new(fetch_configuration)
+  provider = Code0::Identities::Provider::Discord.new(-> { fetch_configuration })
 
   provider.load_identity(params)
 end
