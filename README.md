@@ -84,10 +84,10 @@ end
 
 def fetch_configuration
   # Do some database action, to dynamicly load the configuration
-  # {
-  redirect_uri : "http://localhost:8080/redirect",
-    client_id : "some dynamic value"
-  client_secret : "xxxx"
+  {
+    redirect_uri: "http://localhost:8080/redirect",
+    client_id: "some dynamic value",
+    client_secret: "xxxx"
   }
 end
 
