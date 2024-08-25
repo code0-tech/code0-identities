@@ -9,7 +9,6 @@ module Code0
         end
 
         def token_payload(code)
-          config = config_loader.call
           { code: code,
             redirect_uri: config[:redirect_uri],
             client_id: config[:client_id],
@@ -21,7 +20,6 @@ module Code0
         end
 
         def authorization_url
-          config = config_loader.call
           "https://github.com/login/oauth/authorize?client_id=#{config[:client_id]}&redirect_uri=#{URI.encode_uri_component(config[:redirect_uri])}&scope=read:user+user:email"
         end
 

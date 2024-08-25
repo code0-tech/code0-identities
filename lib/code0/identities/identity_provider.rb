@@ -9,12 +9,12 @@ module Code0
         @providers = {}
       end
 
-      def add_provider(provider_type, config_loader)
-        add_named_provider provider_type, provider_type, config_loader
+      def add_provider(provider_type, config)
+        add_named_provider provider_type, provider_type, config
       end
 
-      def add_named_provider(provider_id, provider_type, config_loader)
-        provider = Identities::Provider.const_get(provider_type.capitalize).new(config_loader)
+      def add_named_provider(provider_id, provider_type, config)
+        provider = Identities::Provider.const_get(provider_type.capitalize).new(config)
         providers[provider_id] = provider
       end
 

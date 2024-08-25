@@ -5,7 +5,6 @@ module Code0
     module Provider
       class Gitlab < BaseOauth
         def base_url
-          config = config_loader.call
           config[:base_url]
         end
 
@@ -14,7 +13,6 @@ module Code0
         end
 
         def token_payload(code)
-          config = config_loader.call
           { code: code,
             grant_type: "authorization_code",
             redirect_uri: config[:redirect_uri],
@@ -27,7 +25,6 @@ module Code0
         end
 
         def authorization_url
-          config = config_loader.call
           # rubocop:disable Layout/LineLength
           base_url + "/oauth/authorize?client_id=#{config[:client_id]}&response_type=code&redirect_uri=#{URI.encode_uri_component(config[:redirect_uri])}&scope=read_user"
           # rubocop:enable Layout/LineLength

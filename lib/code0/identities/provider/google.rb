@@ -13,7 +13,6 @@ module Code0
         end
 
         def token_payload(code)
-          config = config_loader.call
           {
             code: code,
             grant_type: "authorization_code",
@@ -28,7 +27,6 @@ module Code0
         end
 
         def authorization_url
-          config = config_loader.call
           # rubocop:disable Layout/LineLength
           base_url + "/o/oauth2/v2/auth?client_id=#{config[:client_id]}&response_type=code&redirect_uri=#{URI.encode_www_form_component(config[:redirect_uri])}&scope=openid%20email%20profile"
           # rubocop:enable Layout/LineLength
