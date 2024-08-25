@@ -32,9 +32,9 @@ begin
 
   identity = Code0::Identities::Provider::Discord.new(
     {
-      redirect_uri : "http://localhost:8080/redirect",
-        client_id : "id"
-      client_secret : "xxxx"
+      redirect_uri: "http://localhost:8080/redirect",
+      client_id: "id",
+      client_secret: "xxxx"
     }).load_identity({ code: "a_valid_code" })
 
 rescue Code0::Error => e
