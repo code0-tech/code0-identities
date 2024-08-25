@@ -3,10 +3,10 @@
 RSpec.describe Code0::Identities::Provider::Discord do
   subject(:service_response) do
     described_class.new({
-        redirect_uri: redirect_uri,
-        client_id: client_id,
-        client_secret: client_secret
-      }).load_identity(code: code)
+                          redirect_uri: redirect_uri,
+                          client_id: client_id,
+                          client_secret: client_secret
+                        }).load_identity(code: code)
   end
 
   let(:redirect_uri) { SecureRandom.hex }
@@ -66,18 +66,19 @@ RSpec.describe Code0::Identities::Provider::Discord do
 
   context "when config is Proc" do
     subject(:service_response) do
-      described_class.new(-> {{
-                            redirect_uri: redirect_uri,
-                            client_id: client_id,
-                            client_secret: client_secret
-                          }}).load_identity(code: code)
+      described_class.new(lambda {
+                            {
+                              redirect_uri: redirect_uri,
+                              client_id: client_id,
+                              client_secret: client_secret
+                            }
+                          }).load_identity(code: code)
     end
+
     it_behaves_like "when everything is valid"
   end
 
-  context 'when config is a hash' do
+  context "when config is a hash" do
     it_behaves_like "when everything is valid"
   end
-
-
 end

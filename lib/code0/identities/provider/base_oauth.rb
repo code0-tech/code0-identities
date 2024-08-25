@@ -68,9 +68,8 @@ module Code0
         end
 
         def config
-          if config_loader.is_a?(Proc)
-            return config_loader.call
-          end
+          return config_loader.call if config_loader.is_a?(Proc)
+
           config_loader
         end
       end
