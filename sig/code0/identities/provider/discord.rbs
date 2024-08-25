@@ -1,0 +1,17 @@
+module Code0
+  module Identities
+    module Provider
+      class Discord < BaseOauth
+        def token_url: () -> "https://discord.com/api/oauth2/token"
+
+        def token_payload: (untyped code) -> { code: String, grant_type: "authorization_code", redirect_uri: String, client_id: String, client_secret: String }
+
+        def user_details_url: () -> "https://discord.com/api/users/@me"
+
+        def authorization_url: () -> String
+
+        def create_identity: (response: Net::HTTPResponse) -> Identity
+      end
+    end
+  end
+end

@@ -1,5 +1,5 @@
 module Code0
   module Identities
-    VERSION: String
+    class Error < StandardError end
   end
 end

@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+module Code0
+  module Identities
+    class IdentityProvider
+      attr_reader providers: Array[Provider::BaseOauth]
+
+      def initialize: () -> void
+
+      def add_provider: (provider_type: Symbol, config: Proc | Hash[Symbol, any]) -> void
+
+      def add_named_provider: (provider_id: Symbol, provider_type: Symbol, config: Proc | Hash[Symbol, any]) -> void
+
+      def load_identity: (provider_id: Symbol, params: Hash[Symbol, any]) -> Identity
+
+    end
+  end
+end
