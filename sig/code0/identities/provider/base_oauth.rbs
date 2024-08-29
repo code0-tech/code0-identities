@@ -14,7 +14,18 @@ module Code0
 
         def config: () -> Hash[Symbol, any]
 
+        def load_identity: (params: Hash[Symbol, any]) -> Identity
+
+        def token_payload: (code: String) -> Hash[Symbol, any]
+
         def create_identity: (response: Net::HTTPResponse, token: String, token_type: String) -> Identity
+
+        private
+
+        def access_token: (code: String) -> Array[String]
+
+        def check_response: (response: Net::HTTPResponse) -> void
+
       end
     end
   end
