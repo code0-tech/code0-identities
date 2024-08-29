@@ -63,7 +63,7 @@ module Code0
           raise Error, response.body
         end
 
-        def create_identity(*)
+        def create_identity(response, token, token_type)
           raise NotImplementedError
         end
 

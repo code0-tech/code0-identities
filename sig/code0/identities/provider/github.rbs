@@ -1,0 +1,19 @@
+module Code0
+  module Identities
+    module Provider
+      class Github < BaseOauth
+        def token_url: () -> "https://github.com/login/oauth/access_token"
+
+        def token_payload: (code: String) -> { code: String, redirect_uri: String, client_id: String, client_secret: String }
+
+        def user_details_url: () -> "https://api.github.com/user"
+
+        def authorization_url: () -> ::String
+
+        def private_email: (access_token: String, token_type: String) -> String
+
+        def create_identity: (response: Net::HTTPResponse, access_token: String, token_type: String) -> Identity
+      end
+    end
+  end
+end

@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+module Code0
+  module Identities
+    class Identity < Struct[String]
+      attr_reader provider: Symbol
+      attr_reader identitfier: String
+      attr_reader username: String?
+      attr_reader email: String?
+      attr_reader firstname: String?
+      attr_reader lastname: String?
+    end
+  end
+end

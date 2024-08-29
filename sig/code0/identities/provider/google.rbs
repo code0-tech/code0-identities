@@ -1,0 +1,19 @@
+module Code0
+  module Identities
+    module Provider
+      class Google < BaseOauth
+        def base_url: () -> "https://accounts.google.com"
+
+        def token_url: () -> "https://oauth2.googleapis.com/token"
+
+        def token_payload: (code: String) -> { code: String, grant_type: "authorization_code", redirect_uri: String, client_id: String, client_secret: String }
+
+        def user_details_url: () -> "https://www.googleapis.com/oauth2/v3/userinfo"
+
+        def authorization_url: () -> String
+
+        def create_identity: (response: Net::HTTPResponse) -> Identity
+      end
+    end
+  end
+end
