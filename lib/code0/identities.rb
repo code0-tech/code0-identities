@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "httparty"
-require 'onelogin/ruby-saml'
+require "onelogin/ruby-saml"
 
 require_relative "identities/version"
 require_relative "identities/identity_provider"

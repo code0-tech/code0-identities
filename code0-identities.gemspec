@@ -31,13 +31,13 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "httparty", "~> 0.22"
-  spec.add_dependency "ruby-saml", '~> 1.17.0'
+  spec.add_dependency "ruby-saml", "~> 1.17.0"
 
-  spec.add_development_dependency "webmock", "~> 3.23.1"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rubocop", "~> 1.21"
   spec.add_development_dependency "rubocop-rake", "~> 0.6"
   spec.add_development_dependency "rubocop-rspec", "~> 2.29" # Uncomment to register a new dependency of your gem
+  spec.add_development_dependency "webmock", "~> 3.23.1"
   spec.metadata["rubygems_mfa_required"] = "true"
 end

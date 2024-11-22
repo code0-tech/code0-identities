@@ -18,7 +18,8 @@ module Code0
         end
 
         def load_identity(**params)
-          response = OneLogin::RubySaml::Response.new(params[:SAMLResponse], { **config[:response_settings], settings: create_settings })
+          response = OneLogin::RubySaml::Response.new(params[:SAMLResponse],
+                                                      { **config[:response_settings], settings: create_settings })
           attributes = response.attributes
 
           Identity.new(config[:provider_name],
@@ -26,17 +27,14 @@ module Code0
                        find_attribute(attributes, config[:attribute_statements][:username]),
                        find_attribute(attributes, config[:attribute_statements][:email]),
                        find_attribute(attributes, config[:attribute_statements][:firstname]),
-                       find_attribute(attributes, config[:attribute_statements][:lastname])
-          )
+                       find_attribute(attributes, config[:attribute_statements][:lastname]))
         end
 
         private
 
         def find_attribute(attributes, attribute_statements)
           attribute_statements.each do |statement|
-            unless attributes[statement].nil?
-              return attributes[statement]
-            end
+            return attributes[statement] unless attributes[statement].nil?
           end
           nil
         end
@@ -59,10 +57,9 @@ module Code0
 
         def config
           config = config_loader
-          if config_loader.is_a?(Proc)
-            config = config_loader.call
-          end
+          config = config_loader.call if config_loader.is_a?(Proc)
 
+          # rubocop:disable Layout/LineLength
           config[:provider_name] ||= :saml
           config[:response_settings] ||= {}
           config[:settings] ||= {}
@@ -71,6 +68,7 @@ module Code0
           config[:attribute_statements][:email] ||= %w[email mail http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress http://schemas.microsoft.com/ws/2008/06/identity/claims/emailaddress]
           config[:attribute_statements][:firstname] ||= %w[first_name firstname firstName http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname http://schemas.microsoft.com/ws/2008/06/identity/claims/givenname]
           config[:attribute_statements][:lastname] ||= %w[last_name lastname lastName http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname http://schemas.microsoft.com/ws/2008/06/identity/claims/surname]
+          # rubocop:enable Layout/LineLength
 
           config
         end
