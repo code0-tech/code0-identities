@@ -21,7 +21,7 @@ module Code0
         end
 
         def authorization_url
-          config[:user_details_url]
+          config[:authorization_url]
         end
 
         def create_identity(response, *)
