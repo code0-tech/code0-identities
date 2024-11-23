@@ -118,16 +118,16 @@ Here is the updated table where each key in the JSON (`identifier`, `username`, 
 
 ## SAML
 
-| Name                             | Description                                                                                                | Default                            |
-|----------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------|
-| `provider_name`                  | The provider name (not necessarily)                                                                        | `saml`                             |
-| `attribute_statements`           | The keys which the response of the user details has (id, name, email, ...) (only for OIDC)                 | `{}` (see below for more)          |
-| `attribute_statements.username`  | The username of the user                                                                                   | `["username", "name", ...]`        |
-| `attribute_statements.email`     | The email address of the user                                                                              | `["email", "mail", ...]`           |
-| `attribute_statements.firstname` | The first name of the user                                                                                 | `["first_name", "firstname", ...]` |
-| `attribute_statements.lastname`  | The last name of the user                                                                                  | `["last_name", "lastname", ...]`   |
-| `settings`                       | The settings to configure the saml response/requests (see https://github.com/SAML-Toolkits/ruby-saml)      | `{}`                               |
-| `response_settings`              | The response settings to disable some checks if you want (see https://github.com/SAML-Toolkits/ruby-saml)  | `{}`                               |
-| `metadata_url`                   | The metadata url to fetch the metadatas (replacement for `settings`)                                       | **(no default specified)**         |
+| Name                             | Description                                                                                                                                                        | Default                            |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
+| `provider_name`                  | The provider name (not necessarily)                                                                                                                                | `saml`                             |
+| `attribute_statements`           | The keys which the response of the user details has (id, name, email, ...) (only for OIDC)                                                                         | `{}` (see below for more)          |
+| `attribute_statements.username`  | The username of the user                                                                                                                                           | `["username", "name", ...]`        |
+| `attribute_statements.email`     | The email address of the user                                                                                                                                      | `["email", "mail", ...]`           |
+| `attribute_statements.firstname` | The first name of the user                                                                                                                                         | `["first_name", "firstname", ...]` |
+| `attribute_statements.lastname`  | The last name of the user                                                                                                                                          | `["last_name", "lastname", ...]`   |
+| `settings`                       | The settings to configure the saml response/requests (see [SAML-Toolkits#L200](https://github.com/SAML-Toolkits/ruby-saml/blob/master/README.md?plain=1#L200))     | `{}`                               |
+| `response_settings`              | The response settings to disable some checks if you want (see [SAML-Toolkits#L234](https://github.com/SAML-Toolkits/ruby-saml/blob/master/README.md?plain=1#L234)) | `{}`                               |
+| `metadata_url`                   | The metadata url to fetch the metadatas (replacement for `settings`)                                                                                               | **(no default specified)**         |
 
 
