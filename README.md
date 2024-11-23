@@ -92,3 +92,42 @@ def fetch_configuration
 end
 
 ```
+
+# Configuration
+
+As you already know, we allow / require to pass in a configuration. Here are all avaiable configuration keys:
+
+
+## Oauth Based:
+Here is the updated table where each key in the JSON (`identifier`, `username`, etc.) is explicitly labeled:
+
+| Name                               | Description                                                                                | Default                                             |
+|------------------------------------|--------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| `client_id`                        | The client id of the application (needs to be set)                                         | **(no default specified)**                          |
+| `client_secret`                    | The client secret of the application (needs to be set)                                     | **(no default specified)**                          |
+| `redirect_uri`                     | The redirect URL of the application (needs to be set)                                      | **(no default specified)**                          |
+| `provider_name`                    | The provider name (not necessarily)                                                        | depends on the provider (e.g., `discord`, `github`) |
+| `user_details_url`                 | The user details URL to gather user information (only for OIDC)                            | **(no default specified)**                          |
+| `authorization_url`                | The URL which the user has to access to authorize (only for OIDC)                          | **(no default specified)**                          |
+| `attribute_statements`             | The keys which the response of the user details has (id, name, email, ...) (only for OIDC) | `{}` (see below for more)                           |
+| `attribute_statements.identifier`  | The identifier of the user to identify (only for OIDC)                                     | `["id", "sub", "identifier"]`                       |
+| `attribute_statements.username`    | The username of the user (only for OIDC)                                                   | `["username", "name", "login"]`                     |
+| `attribute_statements.email`       | The email address of the user (only for OIDC)                                              | `["email", "mail"]`                                 |
+| `attribute_statements.firstname`   | The first name of the user (only for OIDC)                                                 | `["first_name", "firstname", ...]`                  |
+| `attribute_statements.lastname`    | The last name of the user (only for OIDC)                                                  | `["last_name", "lastname", ...]`                    |
+
+## SAML
+
+| Name                             | Description                                                                                                | Default                            |
+|----------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------|
+| `provider_name`                  | The provider name (not necessarily)                                                                        | `saml`                             |
+| `attribute_statements`           | The keys which the response of the user details has (id, name, email, ...) (only for OIDC)                 | `{}` (see below for more)          |
+| `attribute_statements.username`  | The username of the user                                                                                   | `["username", "name", ...]`        |
+| `attribute_statements.email`     | The email address of the user                                                                              | `["email", "mail", ...]`           |
+| `attribute_statements.firstname` | The first name of the user                                                                                 | `["first_name", "firstname", ...]` |
+| `attribute_statements.lastname`  | The last name of the user                                                                                  | `["last_name", "lastname", ...]`   |
+| `settings`                       | The settings to configure the saml response/requests (see https://github.com/SAML-Toolkits/ruby-saml)      | `{}`                               |
+| `response_settings`              | The response settings to disable some checks if you want (see https://github.com/SAML-Toolkits/ruby-saml)  | `{}`                               |
+| `metadata_url`                   | The metadata url to fetch the metadatas (replacement for `settings`)                                       | **(no default specified)**         |
+
+
