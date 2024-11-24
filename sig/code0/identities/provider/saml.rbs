@@ -1,0 +1,11 @@
+module Code0
+  module Identities
+    module Provider
+      class Saml
+        def authorization_url: () -> String
+
+        def load_identity: (Hash[Symbol, any]) -> Identity
+      end
+    end
+  end
+end

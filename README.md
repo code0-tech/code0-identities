@@ -10,6 +10,7 @@ OAuth:
 - Microsoft
 - Github
 - Gitlab
+- SAML
 
 ## Installation
 
