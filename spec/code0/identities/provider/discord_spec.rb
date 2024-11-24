@@ -58,7 +58,7 @@ RSpec.describe Code0::Identities::Provider::Discord do
         .to_return(body: response_body, headers: { "Content-Type": "application/json" })
 
       expect(service_response.identifier).to eq(1)
-      expect(service_response.provider).to eq(:discord)
+      expect(service_response.provider).to eq("discord")
       expect(service_response.username).to eq("name")
       expect(service_response.email).to eq("example@code0.tech")
     end

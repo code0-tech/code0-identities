@@ -36,7 +36,7 @@ module Code0
           lastname = body["familyname"]
           email = body["email"]
 
-          Identity.new(:microsoft, identifier, nil, email, firstname, lastname)
+          Identity.new(config[:provider_name], identifier, nil, email, firstname, lastname)
         end
       end
     end

@@ -43,7 +43,7 @@ module Code0
 
           email = private_email(access_token, token_type) if email.nil?
 
-          Identity.new(:github, identifier, username, email, nil, nil)
+          Identity.new(config[:provider_name], identifier, username, email, nil, nil)
         end
       end
     end

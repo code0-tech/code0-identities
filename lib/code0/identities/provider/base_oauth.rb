@@ -68,9 +68,12 @@ module Code0
         end
 
         def config
-          return config_loader.call if config_loader.is_a?(Proc)
+          config = config_loader
+          config = config_loader.call if config_loader.is_a?(Proc)
 
-          config_loader
+          config[:provider_name] ||= self.class.name.downcase.split("::").last
+
+          config
         end
       end
     end
