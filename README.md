@@ -10,6 +10,7 @@ OAuth:
 - Microsoft
 - Github
 - Gitlab
+- OIDC / oAuth2
 
 ## Installation
 
