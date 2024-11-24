@@ -21,7 +21,9 @@ module Code0
         end
 
         def authorization_url
-          config[:authorization_url].gsub("{client_id}", config[:client_id]).gsub("{redirect_uri}", config[:redirect_uri])
+          config[:authorization_url]
+            .gsub("{client_id}", config[:client_id])
+            .gsub("{redirect_uri}", config[:redirect_uri])
         end
 
         def create_identity(response, *)
