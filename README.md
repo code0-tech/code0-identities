@@ -11,6 +11,7 @@ OAuth:
 - Github
 - Gitlab
 - OIDC / oAuth2
+- SAML
 
 ## Installation
 
