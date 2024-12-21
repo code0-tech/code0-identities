@@ -41,7 +41,7 @@ module Code0
           firstname = body["given_name"]
           lastname = body["family_name"]
 
-          Identity.new(:google, identifier, username, email, firstname, lastname)
+          Identity.new(config[:provider_name], identifier, username, email, firstname, lastname)
         end
       end
     end

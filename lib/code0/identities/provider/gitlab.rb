@@ -37,7 +37,7 @@ module Code0
           username = body["username"]
           email = body["email"]
 
-          Identity.new(config_loader.call[:provider_name], identifier, username, email, nil, nil)
+          Identity.new(config[:provider_name], identifier, username, email, nil, nil)
         end
       end
     end
