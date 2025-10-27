@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Library to manage external identities"
   spec.homepage = "https://github.com/code0-tech/code0-identities"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.1.2"
+  spec.required_ruby_version = ">= 3.2.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "base64", "~> 0.3.0"
   spec.add_dependency "httparty", "~> 0.22"
   spec.add_dependency "ruby-saml", "~> 1.17.0"
 
