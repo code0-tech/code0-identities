@@ -12,11 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Ruby ${{ matrix.ruby }}
     strategy:
+      fail-fast: false
       matrix:
         ruby:
-          - '3.1.2' # using 3.1.2 instead of latest patch as 3.1.2 is the minimum specified in the gemspec
-          - '3.2.2'
+          - '3.2.0' # using 3.2.0 instead of latest patch as 3.2.0 is the minimum specified in the gemspec
           - '3.3.6'
+          - '3.4.7'
 
     steps:
     - uses: actions/checkout@v4
