@@ -11,6 +11,7 @@ require_relative "identities/provider/microsoft"
 require_relative "identities/provider/google"
 require_relative "identities/provider/discord"
 require_relative "identities/provider/github"
+require_relative "identities/provider/gitlab"
 require_relative "identities/provider/oidc"
 require_relative "identities/provider/saml"
 
