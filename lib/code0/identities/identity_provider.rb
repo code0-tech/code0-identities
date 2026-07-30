@@ -24,11 +24,11 @@ module Code0
           raise Error, "Provider with id '#{provider_id}' is not configured, did you forget to use add_provider"
         end
 
-        provider.load_identity(params)
+        provider.load_identity(**params)
       end
 
-      def [](provider_id)
-        providers[provider_id]
+      def self.for_type(provider_type)
+        Identities::Provider.const_get(provider_type.capitalize)
       end
     end
   end

@@ -10,7 +10,7 @@ module Code0
           @config_loader = config_loader
         end
 
-        def config_attributes
+        def validate_config!
           raise NotImplementedError
         end
 

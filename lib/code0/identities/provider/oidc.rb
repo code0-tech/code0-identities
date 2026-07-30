@@ -4,11 +4,14 @@ module Code0
   module Identities
     module Provider
       class Oidc < BaseOauth
-        def config_attributes
-          {
-            required: %i[client_id client_secret redirect_uri token_url user_details_url authorization_url],
-            optional: %i[provider_name]
-          }
+        def validate_config!
+          required_keys = %i[client_id client_secret redirect_uri token_url user_details_url authorization_url]
+
+          missing_keys = required_keys - config.keys
+          invalid_keys = config.keys - required_keys - [:provider_name]
+
+          raise MissingConfigurationError, "Missing: #{missing_keys.inspect}" if missing_keys.any?
+          raise InvalidConfigurationError, "Invalid: #{invalid_keys.inspect}" if invalid_keys.any?
         end
 
         def token_url

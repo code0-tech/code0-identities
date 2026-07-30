@@ -4,11 +4,14 @@ module Code0
   module Identities
     module Provider
       class Gitlab < BaseOauth
-        def config_attributes
-          {
-            required: %i[base_url client_id client_secret redirect_uri],
-            optional: %i[provider_name]
-          }
+        def validate_config!
+          required_keys = %i[base_url redirect_uri client_id client_secret]
+
+          missing_keys = required_keys - config.keys
+          invalid_keys = config.keys - required_keys - [:provider_name]
+
+          raise MissingConfigurationError, "Missing: #{missing_keys.inspect}" if missing_keys.any?
+          raise InvalidConfigurationError, "Invalid: #{invalid_keys.inspect}" if invalid_keys.any?
         end
 
         def base_url
