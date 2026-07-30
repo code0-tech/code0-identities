@@ -4,7 +4,7 @@ module Code0
       class Saml
         def authorization_url: () -> String
 
-        def config_attributes: -> { optional: Array[Symbol], required: Array[Symbol] }
+        def validate_config!: -> void
 
         def load_identity: (Hash[Symbol, any]) -> Identity
       end

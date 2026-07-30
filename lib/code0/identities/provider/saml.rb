@@ -10,11 +10,14 @@ module Code0
           @config_loader = config_loader
         end
 
-        def config_attributes
-          {
-            required: %i[],
-            optional: %i[provider_name metadata_url settings response_settings attribute_statements]
-          }
+        def validate_config!
+          required_keys = config[:metadata_url].nil? ? %i[settings] : %i[metadata_url]
+
+          missing_keys = required_keys - config.keys
+          invalid_keys = config.keys - %i[provider_name metadata_url settings response_settings attribute_statements]
+
+          raise MissingConfigurationError, "Missing: #{missing_keys.inspect}" if missing_keys.any?
+          raise InvalidConfigurationError, "Invalid: #{invalid_keys.inspect}" if invalid_keys.any?
         end
 
         def authorization_url

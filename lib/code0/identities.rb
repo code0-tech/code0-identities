@@ -18,5 +18,7 @@ require_relative "identities/provider/saml"
 module Code0
   module Identities
     class Error < StandardError; end
+    class MissingConfigurationError < Error; end
+    class InvalidConfigurationError < Error; end
   end
 end

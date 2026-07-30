@@ -3,11 +3,11 @@
 module Code0
   module Identities
     class IdentityProvider
+      def self.for_type: -> Class
+
       attr_reader providers: Hash[Symbol, Provider::BaseOauth]
 
       def initialize: () -> void
-
-      def []: (Symbol) -> Provider::BaseOauth
 
       def add_provider: (provider_type: Symbol, config: Proc | Hash[Symbol, any]) -> void
 
