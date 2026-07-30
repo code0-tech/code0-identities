@@ -4,6 +4,13 @@ module Code0
   module Identities
     module Provider
       class Gitlab < BaseOauth
+        def config_attributes
+          {
+            required: %i[base_url client_id client_secret redirect_uri],
+            optional: %i[provider_name]
+          }
+        end
+
         def base_url
           config[:base_url]
         end

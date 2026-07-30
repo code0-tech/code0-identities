@@ -10,6 +10,13 @@ module Code0
           @config_loader = config_loader
         end
 
+        def config_attributes
+          {
+            required: %i[],
+            optional: %i[provider_name metadata_url settings response_settings attribute_statements]
+          }
+        end
+
         def authorization_url
           request = OneLogin::RubySaml::Authrequest.new
           request.create(create_settings)
