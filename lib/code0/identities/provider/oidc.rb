@@ -8,7 +8,7 @@ module Code0
           required_keys = %i[client_id client_secret redirect_uri token_url user_details_url authorization_url]
 
           missing_keys = required_keys - config.keys
-          invalid_keys = config.keys - required_keys - [:provider_name]
+          invalid_keys = config.keys - required_keys - %i[provider_name attribute_statements]
 
           raise MissingConfigurationError, "Missing: #{missing_keys.inspect}" if missing_keys.any?
           raise InvalidConfigurationError, "Invalid: #{invalid_keys.inspect}" if invalid_keys.any?
