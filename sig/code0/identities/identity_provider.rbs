@@ -7,6 +7,8 @@ module Code0
 
       def initialize: () -> void
 
+      def []: (Symbol) -> Provider::BaseOauth
+
       def add_provider: (provider_type: Symbol, config: Proc | Hash[Symbol, any]) -> void
 
       def add_named_provider: (provider_id: Symbol, provider_type: Symbol, config: Proc | Hash[Symbol, any]) -> void

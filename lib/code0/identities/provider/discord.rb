@@ -4,6 +4,13 @@ module Code0
   module Identities
     module Provider
       class Discord < BaseOauth
+        def config_attributes
+          {
+            required: %i[client_id client_secret redirect_uri],
+            optional: %i[provider_name]
+          }
+        end
+
         def token_url
           "https://discord.com/api/oauth2/token"
         end

@@ -4,6 +4,13 @@ module Code0
   module Identities
     module Provider
       class Oidc < BaseOauth
+        def config_attributes
+          {
+            required: %i[client_id client_secret redirect_uri token_url user_details_url authorization_url],
+            optional: %i[provider_name]
+          }
+        end
+
         def token_url
           config[:token_url]
         end

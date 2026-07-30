@@ -10,6 +10,10 @@ module Code0
           @config_loader = config_loader
         end
 
+        def config_attributes
+          raise NotImplementedError
+        end
+
         def authorization_url
           raise NotImplementedError
         end

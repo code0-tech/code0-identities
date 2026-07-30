@@ -26,6 +26,10 @@ module Code0
 
         provider.load_identity(params)
       end
+
+      def [](provider_id)
+        providers[provider_id]
+      end
     end
   end
 end

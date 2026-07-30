@@ -4,6 +4,13 @@ module Code0
   module Identities
     module Provider
       class Github < BaseOauth
+        def config_attributes
+          {
+            required: %i[client_id client_secret redirect_uri],
+            optional: %i[provider_name]
+          }
+        end
+
         def token_url
           "https://github.com/login/oauth/access_token"
         end

@@ -8,6 +8,8 @@ module Code0
 
         def authorization_url: () -> String
 
+        def config_attributes: -> { optional: Array[Symbol], required: Array[Symbol] }
+
         def token_url: () -> String
 
         def user_details_url: () -> String
