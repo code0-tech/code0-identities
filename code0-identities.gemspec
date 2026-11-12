@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rubocop", "~> 1.21"
   spec.add_development_dependency "rubocop-rake", "~> 0.6"
-  spec.add_development_dependency "rubocop-rspec", "~> 2.29" # Uncomment to register a new dependency of your gem
+  spec.add_development_dependency "rubocop-rspec", "~> 3.0" # Uncomment to register a new dependency of your gem
   spec.add_development_dependency "webmock", "~> 3.23.1"
   spec.metadata["rubygems_mfa_required"] = "true"
 end
