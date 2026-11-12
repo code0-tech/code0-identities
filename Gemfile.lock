@@ -9,17 +9,17 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.7)
-      public_suffix (>= 2.0.2, < 7.0)
+    addressable (2.9.2)
+      public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.2)
     base64 (0.3.0)
-    bigdecimal (3.1.8)
-    crack (1.0.0)
+    bigdecimal (3.3.1)
+    crack (1.0.1)
       bigdecimal
       rexml
     csv (3.3.0)
     diff-lcs (1.5.1)
-    hashdiff (1.1.1)
+    hashdiff (1.2.2)
     httparty (0.22.0)
       csv
       mini_mime (>= 1.0.0)
@@ -39,7 +39,7 @@ GEM
     parser (3.3.4.0)
       ast (~> 2.4.1)
       racc
-    public_suffix (6.0.1)
+    public_suffix (6.0.2)
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.2.1)
@@ -89,7 +89,7 @@ GEM
       nokogiri (>= 1.13.10)
       rexml
     unicode-display_width (2.5.0)
-    webmock (3.23.1)
+    webmock (3.34.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -105,7 +105,7 @@ DEPENDENCIES
   rubocop (~> 1.21)
   rubocop-rake (~> 0.6)
   rubocop-rspec (~> 2.29)
-  webmock (~> 3.23.1)
+  webmock (~> 3.34.0)
 
 BUNDLED WITH
    2.5.9
